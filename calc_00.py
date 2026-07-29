@@ -8,6 +8,7 @@ result_str = "Result: "
 print("Function guide: 1 = Addition(+), 2 = Subtraction(-), 3 = Multiplication(*), 4 = Division(/)")
 f = int(input("Enter function Nr.: "))
 
+# 123
 if (x.isdigit() and y.isdigit()):
     x = int(x)
     y = int(y)
