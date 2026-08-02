@@ -10,16 +10,17 @@ def main():
     else:
         print("ValueError: input must be an expression.")
 
-
 def validation(expression):
     NUMBERS = "0123456789"
     FUNCTIONS = "+-*/"
-    is_valid = True
     no_space_expression = expression.replace(" ","")
-    for i in range(len(no_space_expression)):
-        if no_space_expression[i] not in NUMBERS and no_space_expression[i] not in FUNCTIONS:
-            return False
-    return is_valid
+    if no_space_expression[0].isdigit() and no_space_expression[len(no_space_expression-1)].isdigit():
+        for i in range(len(no_space_expression)):
+            if no_space_expression[i] not in NUMBERS and no_space_expression[i] not in FUNCTIONS:
+                return False
+        return True
+    else:
+        return False
 
 def multdiv(expression_list):
     pass
