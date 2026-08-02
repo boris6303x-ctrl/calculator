@@ -1,3 +1,6 @@
+NUMBERS = "0123456789"
+FUNCTIONS = "+-*/"
+
 print("Calculator 1.0")
 # simple calculator for my IT lessons
 def main():
@@ -11,8 +14,6 @@ def main():
         print("ValueError: input must be an expression.")
 
 def validation(expression):
-    NUMBERS = "0123456789"
-    FUNCTIONS = "+-*/"
     no_space_expression = expression.replace(" ","")
     if no_space_expression[0].isdigit() and no_space_expression[len(no_space_expression-1)].isdigit():
         for i in range(len(no_space_expression)):
@@ -29,7 +30,7 @@ def addsub(multdiv_list):
     pass
 
 def parser(expression):
-    pass
+    return expression.split(" ")
 
 # 4 + 3 * 2 - 8 / 2
 # 4+6-4
