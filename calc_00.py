@@ -2,7 +2,6 @@ NUMBERS = "0123456789"
 FUNCTIONS = "+-*/"
 
 print("Calculator 1.0")
-# simple calculator for my IT lessons
 def main():
     expression = input("Enter an expression: ")
     if validation(expression):
@@ -57,9 +56,6 @@ def parser(expression):
 # 4 + 3 * 2 - 8 / 2
 # 4+6-4
 # 6
-
-
-
 # if (x.isdigit() and y.isdigit()):
 #     x = int(x)
 #     y = int(y)
