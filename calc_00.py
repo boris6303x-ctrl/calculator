@@ -18,7 +18,7 @@ def main():
 
 def validation(expression):
     no_space_expression = expression.replace(" ","")
-    if no_space_expression[0].isdigit() and no_space_expression[len(no_space_expression-1)].isdigit():
+    if no_space_expression[0].isdigit() and no_space_expression[len(no_space_expression)-1].isdigit():
         for i in range(len(no_space_expression)):
             if no_space_expression[i] not in NUMBERS and no_space_expression[i] not in FUNCTIONS:
                 return False
@@ -31,7 +31,7 @@ def multdiv(expression_list):
     idx = 0
     while idx < len(expression_list):
         if expression_list[idx] == "*" or expression_list[idx] == "/":
-            last_number = int(result_list.pop(len(expression_list)-1))
+            last_number = int(result_list.pop(len(result_list)-1))
             next_number = int(expression_list[idx+1])
             if expression_list[idx] == "*":
                 result_list.append(last_number * next_number)
@@ -60,7 +60,6 @@ def parser(expression):
 
 
 
-# 123
 # if (x.isdigit() and y.isdigit()):
 #     x = int(x)
 #     y = int(y)
