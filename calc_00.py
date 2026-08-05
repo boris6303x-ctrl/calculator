@@ -7,9 +7,9 @@ def main():
     if validation(expression):
         expression_list = parser(expression)
         multdiv_list = multdiv(expression_list)
-        if multdiv_list == "#DIV/0!":
+        if multdiv_list == "ZeroDivisionError":
             print("ZeroDivisionError: cannot divide by zero")
-            exit()
+            return
         result = addsub(multdiv_list)
         print(f"Result: {result}")
     else:
@@ -36,12 +36,10 @@ def multdiv(expression_list):
                 result_list.append(last_number * next_number)
             elif expression_list[idx] == "/":
                 if next_number == 0:
-                    return("#DIV/0!")
-                elif last_number / next_number == int(last_number / next_number):
-                    result_list.append(int(last_number / next_number))
+                    return "ZeroDivisionError"
                 else:
-                    result_list.append(last_number / next_number)
-                idx += 1
+                    result_list.append(int(last_number / next_number))
+            idx += 1
         else:
             result_list.append(expression_list[idx])
         idx += 1
