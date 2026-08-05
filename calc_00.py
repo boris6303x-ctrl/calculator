@@ -46,7 +46,15 @@ def multdiv(expression_list):
     return result_list
 
 def addsub(multdiv_list):
-    pass
+    result = int(multdiv_list[0])
+    idx = 1
+    while idx < len(multdiv_list):
+        if multdiv_list[idx] == "+":
+            result += int(multdiv_list[idx+1])
+        elif multdiv_list[idx] == "-":
+            result -= int(multdiv_list[idx+1])
+        idx += 2
+    return result
 
 def parser(expression):
     return expression.split(" ")
