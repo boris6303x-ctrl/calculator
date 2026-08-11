@@ -4,7 +4,7 @@ FUNCTIONS = "+-*/"
 print("Calculator 1.0")
 def main():
     expression = input("Enter an expression: ")
-    if validation(expression):
+    if validation(expression) and sign_validation(expression):
         expression_list = parser(expression)
         multdiv_list = multdiv(expression_list)
         if multdiv_list == "ZeroDivisionError":
@@ -13,7 +13,7 @@ def main():
         result = addsub(multdiv_list)
         print(f"Result: {result}")
     else:
-        print("ValueError: input must be not empty and an expression.")
+        print("ValueError: input must be not empty and a valid expression.")
 
 def validation(expression):
     no_space_expression = expression.replace(" ","")
@@ -62,6 +62,11 @@ def addsub(multdiv_list):
 def parser(expression):
     return expression.split(" ")
 
+def sign_validation(expression):
+    for i in range(len(expression)):
+        if expression[i] in FUNCTIONS and expression[i+1] in FUNCTIONS:
+            return False
+    return True
 
 if __name__ == "__main__":
     main()
