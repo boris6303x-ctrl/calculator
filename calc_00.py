@@ -1,10 +1,10 @@
 NUMBERS = "0123456789"
 FUNCTIONS = "+-*/"
 
-print("Calculator 1.0")
+print("Calculator 2.0")
 def main():
     expression = input("Enter an expression: ")
-    if validation(expression) and sign_validation(expression):
+    if validation(expression) and sign_validation(expression) and num_validation(expression):
         expression_list = parser(expression)
         multdiv_list = multdiv(expression_list)
         if multdiv_list == "ZeroDivisionError":
@@ -16,6 +16,7 @@ def main():
         print("ValueError: input must be not empty and a valid expression.")
 
 def validation(expression):
+    # Next version: combine all validations into one function
     no_space_expression = expression.replace(" ","")
     if no_space_expression == "":
         return False
@@ -65,6 +66,13 @@ def parser(expression):
 def sign_validation(expression):
     for i in range(len(expression)):
         if expression[i] in FUNCTIONS and expression[i+1] in FUNCTIONS:
+            return False
+    return True
+
+def num_validation(expression):
+    # IndexError
+    for i in range(len(expression)):
+        if expression[i] in NUMBERS and expression[i+1] in NUMBERS:
             return False
     return True
 
